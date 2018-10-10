@@ -1,0 +1,66 @@
+<!-- Template for Shopping Cart -->
+
+<h2>Shopping Cart</h2>
+<div class="alert alert-warning" role="alert" *ngIf="getTotalItems() === 0">
+  Your cart is empty!
+</div>
+
+<div class="table-responsive col-md-12" *ngIf="getTotalItems() > 0">
+
+  <table class="table table-striped cart">
+      <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th>Amount</th>
+          <th>Quantity</th>
+          <th>Total</th>
+      </tr>
+      </thead>
+
+      <tfoot>
+        <tr *ngIf="!getDvdDiscount() == 0">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>DVD Discount (10%):</td>
+            <td>{{ getDvdDiscount() | currency }}</td>
+        </tr>
+        <tr *ngIf="!getBlurayDiscount() == 0">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Bluray Discount (15%):</td>
+          <td>{{ getBlurayDiscount() | currency }}</td>
+        </tr>
+        <tr *ngIf="!getBulkDiscount() == 0">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Bluk Discount (5%):</td>
+          <td>{{ getBulkDiscount() | currency }}</td>
+      </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td>{{ getTotalItems() }}</td>
+            <td>{{ getTotalPriceWithBulkDiscount() | currency }}</td>
+        </tr>
+        </tfoot>
+
+      <tbody>
+        <tr *ngFor="let item of getValues()">
+            <td><span (click)="removeAllItemsFromCartById(getKeyByValue(item))" class="glyphicon glyphicon-remove"></span></td>
+
+            <td>{{ item.name }}</td>
+            <td>{{ item.getIndividualPrice() | currency}}</td>
+            <td><span class="glyphicon glyphicon-minus" [ngClass]="{'disabled':item.getCount()===1}"
+                      (click)="updateItemCount(item,-1)"></span>&nbsp;&nbsp;
+                {{ item.count | number }}&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-plus" (click)="updateItemCount(item,1)"></span></td>
+            <td>{{ item.getTotalPrice() | currency }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

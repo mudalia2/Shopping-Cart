@@ -1,0 +1,7 @@
+.cart .glyphicon.disabled {
+    color:#aaa;
+}
+
+.glyphicon.glyphicon-minus.glyphicon.disabled {
+    pointer-events: none;
+}
