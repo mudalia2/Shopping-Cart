@@ -1,4 +1,4 @@
-# ShoppingCart
+ShoppingCart
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3
 I have built the program on macOS.
@@ -18,5 +18,3 @@ ASSUMPTIONS:
 1. Maximum number of items that can be added at once is 29
 2. You have to click on the X to remove item, cannot do this by just subtracting from the cart
 
-THINGS I WOULD HAVE LIKED TO DO:
-While the project currently does everything its supposed to do(Including stretch goals), I would have liked to add some animations and make it look a little pretty. Also adding some unit tests!  Unfortunately with college and exams I didnt have the time to do so. I Hope you have fun shopping at The Pirate Shop! :)
